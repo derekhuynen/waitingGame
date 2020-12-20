@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import waitinggame.demo.model.LeaderBoard;
 import waitinggame.demo.repository.LeaderBoardRepository;
-import waitinggame.demo.services.LeaderBoardService;
+
 
 
 import java.util.List;
