@@ -1,6 +1,8 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+
 import Timer from "./Timer";
+import LeaderBoardList from "./LeaderBoardList";
 
 
 function App() {
@@ -8,8 +10,9 @@ function App() {
 
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Timer/>
+          <h1>Leader Board</h1>
+          <LeaderBoardList/>
+          <Timer/>
       </header>
     </div>
   );

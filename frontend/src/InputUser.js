@@ -1,9 +1,10 @@
 import React, {Component} from "react";
-import LeaderBoardList from "./LeaderBoardList";
+import LeaderBoardList from "./LeaderBoard";
 import axios from 'axios';
+import LeaderBoard from "./LeaderBoard";
 
 
-class Timer extends Component {
+class InputUser extends Component {
   constructor(props) {
     super(props);
     this.state = { score: 0, user: '', persons: []};
@@ -29,19 +30,16 @@ class Timer extends Component {
     return (
         <div className="Timer">
           <header className="Timer-header">
+            <LeaderBoard persons = {this.state.persons} />
             <h1>
               Points: {this.state.score}
             </h1>
             <form onSubmit={this.handleSubmit}>
-
               <input
                   onChange={this.handleChange}
                   value={this.state.user}
               />
-              <label>Enter Name</label>
-              <button
-                  type={"submit"}
-              >
+              <button type={"submit"}>
                 Submit Score
               </button>
             </form>
@@ -67,11 +65,19 @@ class Timer extends Component {
         .then(res => {
           console.log(res);
           console.log(res.data);
-          window.location.reload(false);
+
         })
 
+    axios.get(`http://localhost:8080/api/LeaderBoard`)
+        .then(res => {
+          console.log(res)
+          this.setState({ persons: res.data });
+          this.setState(() => ({score: 0 }))
+        })
   }
 }
 
-export default Timer;
+
+
+export default InputUser;
 

@@ -8,6 +8,8 @@ public interface LeaderBoardService {
 
     List<LeaderBoard> getAllLeaderBoard();
 
+    List<LeaderBoard> getTopTenLeaderBoard();
+
     LeaderBoard getLeaderBoardById(int id);
 
     void addLeaderBoard(LeaderBoard LeaderBoard);

@@ -2,6 +2,7 @@ package waitinggame.demo.services;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import waitinggame.demo.model.LeaderBoard;
@@ -18,10 +19,18 @@ public class LeaderBoardServiceImplementation implements LeaderBoardService {
     @Autowired
     LeaderBoardRepository LeaderBoardRepository;
 
+
     @Override
     public List<LeaderBoard> getAllLeaderBoard() {
         return (List<LeaderBoard>) LeaderBoardRepository.findAll();
     }
+
+
+    @Override
+    public List<LeaderBoard> getTopTenLeaderBoard() {
+        return (List<LeaderBoard>) LeaderBoardRepository.findAll();
+    }
+
 
     @Override
     public LeaderBoard getLeaderBoardById(int id) {

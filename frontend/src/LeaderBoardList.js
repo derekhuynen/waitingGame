@@ -5,7 +5,8 @@ import axios from 'axios';
 
 class LeaderBoardList extends React.Component {
     state = {
-        persons: []
+        persons: [],
+        seconds: 0
     }
 
     componentDidMount() {
@@ -13,8 +14,10 @@ class LeaderBoardList extends React.Component {
             .then(res => {
                 console.log(res)
                 this.setState({ persons: res.data });
+                this.setState(() => ({seconods: 0 }))
             })
     }
+
 
     render() {
         return (
